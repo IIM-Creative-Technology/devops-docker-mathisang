@@ -1,6 +1,7 @@
 stages:
   - build
   - lint
+  - deploy
 
 build:
   stage: build
@@ -11,7 +12,7 @@ build:
     paths:
       - ./node_modules
   only:
-    - develop
+    - master
 
 lint:
   stage: lint
@@ -22,4 +23,13 @@ lint:
     paths:
       - ./node_modules
   only:
-    - develop
+    - master
+
+deploy:
+  stage: deploy
+  image: ruby:2.7
+  script:
+    - gem install dpl
+    - dpl --provider=heroku --app=$HEROKU_APP --api-key=$HEROKU_KEY --skip_cleanup=true
+  only:
+    - master

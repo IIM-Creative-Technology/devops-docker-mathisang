@@ -4,12 +4,6 @@ const axios = require('axios')
 
 app.listen(8080, () => {
     console.log('Serveur démarré')
-
-
-
-
-
-
 })
 
 app.get('/', (req, res) => {

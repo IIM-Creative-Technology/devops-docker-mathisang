@@ -8,6 +8,9 @@ module.exports = {
     'parserOptions': {
         'ecmaVersion': 13
     },
+    'globals': {
+        "process": true
+    },
     'rules': {
         'accessor-pairs': 'error',
         'array-bracket-newline': 'error',

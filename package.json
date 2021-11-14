@@ -4,7 +4,8 @@
   "description": "API Cryptomonnaie",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint 'index.js?(x)'"
+    "lint": "eslint 'index.js?(x)'",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,7 @@
     "nodemon": "^2.0.14"
   },
   "devDependencies": {
-    "eslint": "^8.2.0"
+    "eslint": "^8.2.0",
+    "jest": "^27.3.1"
   }
 }

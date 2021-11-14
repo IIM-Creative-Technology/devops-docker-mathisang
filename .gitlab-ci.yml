@@ -1,29 +1,29 @@
 stages:
-  - build
   - lint
+  - jest
+  - audit
   - deploy
-
-build:
-  stage: build
-  image: node:14
-  script:
-    - npm install
-  cache:
-    paths:
-      - ./node_modules
-  only:
-    - develop
 
 lint:
   stage: lint
   image: node:14
   script:
+    - npm install
     - npm run lint
-  cache:
-    paths:
-      - ./node_modules
-  only:
-    - develop
+
+jest:
+  stage: jest
+  image: node:14
+  script:
+    - npm install
+    - npm run test
+
+audit:
+  stage: audit
+  image: node:14
+  script:
+    - npm install
+    - npm audit
 
 deploy:
   stage: deploy
@@ -31,5 +31,3 @@ deploy:
   script:
     - gem install dpl
     - dpl --provider=heroku --app=$HEROKU_APP --api-key=$HEROKU_KEY --skip_cleanup=true
-  only:
-    - develop

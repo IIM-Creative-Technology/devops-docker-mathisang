@@ -4,36 +4,45 @@ before_script:
   - gem install dpl
 
 stages:
-#  - lint
-#  - jest
-#  - audit
+  - lint
+  - jest
+  - audit
   - deploy
+  - production
 
-#lint:
-#  stage: lint
-#  image: node:14
-#  script:
-#    - npm install
-#    - npm run lint
-#
-#jest:
-#  stage: jest
-#  image: node:14
-#  script:
-#    - npm install
-#    - npm run test
-#
-#audit:
-#  stage: audit
-#  image: node:14
-#  script:
-#    - npm install
-#    - npm audit
+lint:
+  stage: lint
+  image: node:14
+  script:
+    - npm install
+    - npm run lint
+
+jest:
+  stage: jest
+  image: node:14
+  script:
+    - npm install
+    - npm run test
+
+audit:
+  stage: audit
+  image: node:14
+  script:
+    - npm install
+    - npm audit
 
 deploy:
   stage: deploy
   image: ruby:latest
   script:
-    - dpl --provider=heroku --app=expresscrypto --api-key=4122e720-9739-4b60-afc8-98159a05cb4a
+    - dpl --provider=heroku --app=$HEROKU_APP_STAGING --api-key=$HEROKU_KEY
   only:
     - develop
+
+production:
+  stage: production
+  image: ruby:latest
+  script:
+    - dpl --provider=heroku --app=$HEROKU_APP_PRODUCTION --api-key=$HEROKU_KEY
+  only:
+    - master

@@ -11,4 +11,7 @@ Puis j'ai mis en place deux stages pour le déploiement :
 - Le deuxième, lors d'un merge de vers Master, on va push sur le serveur de production
 
 Lien preprod : https://expresscrypto.herokuapp.com/
+
 Lien prod : https://expresscryptoprod.herokuapp.com/
+
+Lien projet Gitlab : https://gitlab.com/Mathisang/api-crypto

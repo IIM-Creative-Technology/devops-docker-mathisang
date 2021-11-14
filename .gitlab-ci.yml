@@ -27,7 +27,6 @@ audit:
 
 deploy:
   stage: deploy
-  image: ruby:2.7
   script:
-    - gem install dpl
-    - dpl --provider=heroku --app=$HEROKU_APP --api-key=$HEROKU_KEY --skip_cleanup=true
+    - git remote add heroku https://heroku:$HEROKU_API_KEY@git.heroku.com/expresscrypto.git
+    - git push -f heroku master

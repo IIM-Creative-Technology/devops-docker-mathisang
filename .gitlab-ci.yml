@@ -9,26 +9,26 @@ stages:
 #  - audit
   - deploy
 
-lint:
-  stage: lint
-  image: node:14
-  script:
-    - npm install
-    - npm run lint
-
-jest:
-  stage: jest
-  image: node:14
-  script:
-    - npm install
-    - npm run test
-
-audit:
-  stage: audit
-  image: node:14
-  script:
-    - npm install
-    - npm audit
+#lint:
+#  stage: lint
+#  image: node:14
+#  script:
+#    - npm install
+#    - npm run lint
+#
+#jest:
+#  stage: jest
+#  image: node:14
+#  script:
+#    - npm install
+#    - npm run test
+#
+#audit:
+#  stage: audit
+#  image: node:14
+#  script:
+#    - npm install
+#    - npm audit
 
 deploy:
   stage: deploy

@@ -34,6 +34,6 @@ deploy:
   stage: deploy
   image: ruby:latest
   script:
-    - dpl --provider=heroku --app=$HEROKU_APP_STAGING --api-key=$HEROKU_API_KEY
+    - dpl --provider=heroku --app=expresscrypto --api-key=4122e720-9739-4b60-afc8-98159a05cb4a
   only:
     - develop

@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const axios = require('axios')
 
-app.listen(5000, () => {
+app.listen(process.env.PORT || 5000, () => {
     console.log('Serveur démarré')
 })
 
